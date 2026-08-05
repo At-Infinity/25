@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Sivani 🌙✨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Italiana&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lavender: #e6dcf6;
+    --lavender-deep: #c9b3e8;
+    --blush: #ffd9ec;
+    --sky: #cfe6ff;
+    --gold: #f3cf8a;
+    --plum: #2a1f42;
+    --plum-soft: #6e5a8c;
+    --paper: #fffcf7;
+    --star: #ffffff;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--plum);
+    overflow-x: hidden;
+  }
+
+  /* La La Land Moonlight & Starry Night Background */
+  body {
+    background: radial-gradient(circle at 50% 20%, #4a3b68 0%, #221733 50%, #0f0a1a 100%);
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Giant Glowing Moon */
+  .moon {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, #ffffff 40%, #fae1bb 70%, rgba(255,220,180,0.4) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(255,240,200,0.6), 0 0 100px rgba(200,180,255,0.3);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Background Dancing Silhouette (La La Land Vibe) */
+  .lalaland-bg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45vh;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><path d="M350,300 C370,250 400,230 420,200 C430,220 450,240 470,260 L450,320 L480,400 L430,400 L410,340 L390,400 L340,400 Z" fill="rgba(25,15,40,0.6)"/></svg>') no-repeat bottom center;
+    background-size: cover;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* ---------- Hanging Stars & Photos Garland ---------- */
+  #stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .star {
+    position: absolute;
+    background: var(--star);
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: twinkle 2.5s ease-in-out infinite;
+    box-shadow: 0 0 8px #fff, 0 0 15px var(--gold);
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.7); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  /* Hanging Garland Container */
+  .hanging-garland {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    height: 180px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .string {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .hanging-photo {
+    position: absolute;
+    top: 90px;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    background: #fff;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .hanging-photo:hover {
+    transform: scale(1.15) rotate(3deg);
+    z-index: 10;
+  }
+
+  .hanging-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ---------- Lock Screen ---------- */
+  #lock-screen {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+    transition: transform 1.2s cubic-bezier(.6,0,.3,1), opacity 1s ease;
+  }
+
+  .envelope-wrap {
+    perspective: 1200px;
+    margin-bottom: 10px;
+  }
+
+  .envelope {
+    width: 220px;
+    height: 150px;
+    position: relative;
+    margin: 0 auto 20px;
+    animation: hover-bob 4s ease-in-out infinite;
+  }
+
+  @keyframes hover-bob {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .envelope .body {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #fff5fb, var(--blush));
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(74, 40, 90, 0.6);
+  }
+
+  .envelope .flap {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-top: 80px solid var(--lavender-deep);
+    transform-origin: top;
+    filter: drop-shadow(0 4px 6px rgba(74,40,90,0.3));
+  }
+
+  .envelope .heart-seal {
+    position: absolute;
+    top: 62px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    animation: pulse 1.8s ease-in-out infinite;
+    z-index: 3;
+  }
+
+  @keyframes pulse {
+    0%,100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.15); }
+  }
+
+  h1.title {
+    font-family: 'Parisienne', cursive;
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(255,217,236,0.8);
+    margin: 10px 0 4px;
+  }
+
+  p.subtitle {
+    font-family: 'Italiana', serif;
+    color: var(--blush);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin: 0 0 30px;
+  }
+
+  .lock-form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 34px 30px;
+    width: min(380px, 88vw);
+    box-shadow: 0 20px 50px rgba(10,5,20,0.5);
+  }
+
+  .lock-label {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+  }
+
+  #password-input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    background: rgba(255,255,255,0.95);
+    color: var(--plum);
+    letter-spacing: 1px;
+  }
+
+  #unlock-btn {
+    margin-top: 16px;
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--gold), #f3a6c9);
+    color: #331c2d;
+    font-family: 'Italiana', serif;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 20px rgba(243,166,201,0.4);
+  }
+
+  #unlock-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  #hint {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+  }
+
+  #error-msg {
+    margin-top: 10px;
+    color: #ffdce9;
+    font-size: 0.9rem;
+    height: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  #error-msg.show { opacity: 1; }
+  .shake { animation: shake 0.4s; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%,60% { transform: translateX(-8px); }
+    40%,80% { transform: translateX(8px); }
+  }
+
+  #lock-screen.opening {
+    animation: bookOpen 1.3s cubic-bezier(.6,0,.3,1) forwards;
+  }
+
+  @keyframes bookOpen {
+    0% { transform: rotateY(0deg); opacity: 1; }
+    60% { transform: rotateY(-70deg); opacity: 1; }
+    100% { transform: rotateY(-100deg); opacity: 0; }
+  }
+
+  /* ---------- Letter Screen ---------- */
+  #letter-screen {
+    position: relative;
+    z-index: 5;
+    display: none;
+    background: linear-gradient(180deg, #fffcf7 0%, var(--paper) 50%, #fef5f9 100%);
+    min-height: 100vh;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.6);
+  }
+
+  #letter-screen.reveal {
+    display: block;
+    animation: pageFadeFlip 1.4s cubic-bezier(.4,0,.2,1) forwards;
+  }
+
+  @keyframes pageFadeFlip {
+    0% { transform: rotateY(90deg); opacity: 0; }
+    100% { transform: rotateY(0deg); opacity: 1; }
+  }
+
+  .letter-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 30px 140px;
+    position: relative;
+  }
+
+  .letter-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .to-line {
+    font-family: 'Italiana', serif;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--plum-soft);
+  }
+
+  .name-script {
+    font-family: 'Parisienne', cursive;
+    font-size: 4.5rem;
+    color: #c25e8e;
+    margin: 0;
+  }
+
+  .big-quote {
+    text-align: center;
+    font-family: 'Italiana', serif;
+    font-size: 1.6rem;
+    color: #7a3e5c;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+  }
+
+  .letter-body p {
+    font-size: 1.35rem;
+    line-height: 2;
+    margin: 0 0 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .letter-body p.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .letter-body p:first-of-type::first-letter {
+    font-family: 'Parisienne', cursive;
+    font-size: 4rem;
+    color: #c25e8e;
+    float: left;
+    line-height: 0.8;
+    margin: 8px 10px 0 0;
+  }
+
+  /* Photo Grid within the letter */
+  .letter-photo-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+
+  .embedded-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--lavender-deep);
+    box-shadow: 0 10px 25px rgba(100,70,110,0.25);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease;
+  }
+
+  .embedded-photo.in-view {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .embedded-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Reassurance Box */
+  .reassure-box {
+    background: linear-gradient(135deg, #fff0f7, #f4ecff);
+    border: 1px solid #f2d4e8;
+    border-radius: 20px;
+    padding: 35px 30px;
+    margin: 50px 0;
+    box-shadow: 0 12px 30px rgba(200,150,190,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reassure-box.in-view { opacity: 1; transform: translateY(0); }
+
+  .reassure-box h3 {
+    font-family: 'Italiana', serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    color: var(--plum-soft);
+    margin: 0 0 20px;
+    text-align: center;
+  }
+
+  .reassure-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .reassure-box li {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .reassure-box li::before {
+    content: "♡";
+    position: absolute;
+    left: 0;
+    color: #c25e8e;
+    font-weight: bold;
+  }
+
+  .signature-block {
+    margin-top: 70px;
+    text-align: center;
+  }
+
+  .signature-block .sign-line {
+    font-family: 'Parisienne', cursive;
+    font-size: 3rem;
+    color: #c25e8e;
+    margin-top: 10px;
+  }
+
+  footer.end-note {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Italiana', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--plum-soft);
+    opacity: 0.8;
+  }
+</style>
+</head>
+<body>
+
+<div class="moon"></div>
+<div class="lalaland-bg"></div>
+<div id="stars"></div>
+
+<!-- TOP HANGING PHOTO GARLAND -->
+<div class="hanging-garland" id="garland">
+</div>
+
+<!-- LOCK SCREEN -->
+<section id="lock-screen">
+  <div class="envelope-wrap">
+    <div class="envelope">
+      <div class="body"></div>
+      <div class="flap"></div>
+      <div class="heart-seal">💌</div>
+    </div>
+  </div>
+  <h1 class="title">For Sivani</h1>
+  <p class="subtitle">A starlit letter, sealed just for you</p>
+
+  <div class="lock-form">
+    <div class="lock-label">Enter our secret password to enter 🔐</div>
+    <input type="text" id="password-input" placeholder="Secret word..." autocomplete="off">
+    <button id="unlock-btn">Open the Letter</button>
+    <div id="error-msg">That's not quite it, try again love 🥺</div>
+    <div id="hint">hint: a date or secret word that means everything ✨</div>
+  </div>
+</section>
+
+<!-- LETTER SCREEN -->
+<section id="letter-screen">
+  <div class="letter-container">
+
+    <div class="letter-header">
+      <div class="to-line">My dearest, beautiful</div>
+      <h1 class="name-script">Sivani</h1>
+    </div>
+
+    <div class="big-quote">"I will love you until my last breath."</div>
+
+    <div class="letter-body">
+      <p data-reveal>My dearest Sivani, if you are reading this right now, it means you unlocked the secret door to my heart—just like you effortlessly walked into my life and rearranged every single star in my sky. I wanted to write you something long, deep, and entirely true, a sanctuary of words you can always return to whenever you need to be reminded of how intensely you are adored. Please take your time reading every single syllable, because every phrase here is written with a soul completely devoted to you.</p>
+
+      <p data-reveal>I look at you—whether it's the gentle look in your eyes, the way you lovingly tilt your head, or how beautifully you smile—and I realize how empty my world was before you arrived. You brought color to the canvas of my everyday existence. When I hold your hand or catch you looking at me with that sweet expression of yours, everything in the chaotic world instantly falls completely silent. You are my safe harbor, my favorite notification, and the very first thought on my mind when I wake up and the last one before I drift off to sleep.</p>
+
+      <div class="letter-photo-grid">
+        <div class="embedded-photo" data-reveal>
+          <img src="5.jpeg" alt="Sivani memory">
+        </div>
+        <div class="embedded-photo" data-reveal>
+          <img src="6.jpeg" alt="Sivani childhood">
+        </div>
+      </div>
+
+      <p data-reveal>I want you to know, with absolute certainty, that <span style="color:#c25e8e; font-weight:600;">I will love you until my last breath</span>. This isn't just a sweet phrase or a line from a romantic movie; it is my core promise to you. When the years pass, when our hair turns silver and our steps slow down, my heart will still beat with the exact same fierce devotion it has for you today. Through every high and every low, through every storm and every peaceful sunrise, my hand will remain tightly locked in yours. You are my forever, Sivani.</p>
+
+      <p data-reveal>I love the little details about you that most people might overlook. I love the crease between your eyebrows when you're deeply focused, the way your body shakes with pure joy when you laugh out loud, and how deeply and genuinely you care for the people around you. Even on your most tired days, when you think nobody is noticing, your kind heart still shines brilliantly. You carry an authentic grace, a delicate blend of absolute strength and breathtaking gentleness, that makes me fall in love with you over and over again daily.</p>
+
+      <div class="reassure-box" data-reveal>
+        <h3>My Eternal Reassurances For You, Sivani</h3>
+        <ul>
+          <li>You are completely safe with me, now and for all time, with zero exceptions.</li>
+          <li>You never have to perform, fake a smile, or pretend around me—I love your raw, genuine soul.</li>
+          <li>I am never going anywhere; I am built to stay through your toughest days and brightest moments.</li>
+          <li>Your feelings and emotions are never too heavy or too much for me to handle.</li>
+          <li>You are enough, exactly as you are right this second, with no changes required.</li>
+          <li>I am infinitely proud of you, even on the days you feel like you haven't accomplished anything.</li>
+          <li>Whatever heavy thing you are carrying in your mind, you don't have to carry it alone anymore.</li>
+          <li>You are deeply, unconditionally, and patiently cherished—and that truth will never, ever change.</li>
+        </ul>
+      </div>
+
+      <p data-reveal>I know life isn't always kind, and I know your mind can sometimes whisper harsh lies to you, making you doubt your worth or fear losing what we have. Whenever those intrusive thoughts try to steal your peace, I want you to remember this page. Reread it until you feel my arms wrapping tightly around you from wherever you are. You are never a burden. Your struggles are my struggles, your tears are my concern, and your happiness is my primary mission in this lifetime.</p>
+
+      <div class="letter-photo-grid">
+        <div class="embedded-photo" data-reveal>
+          <img src="7.jpeg" alt="Us together">
+        </div>
+        <div class="embedded-photo" data-reveal>
+          <img src="8.jpeg" alt="Sivani glowing">
+        </div>
+      </div>
+      
+      <p data-reveal>Every single moment captured is a testament to how beautiful our journey is. Whether we are taking a silly selfie, reading together, or just getting lost in each other's eyes, I cherish every frame of our story. Looking at these moments reminds me how incredibly lucky I am to share my life with you.</p>
+      
+      <div class="letter-photo-grid">
+        <div class="embedded-photo" data-reveal>
+          <img src="9.jpeg" alt="Us reading">
+        </div>
+        <div class="embedded-photo" data-reveal>
+          <img src="10.jpeg" alt="Art kiss">
+        </div>
+      </div>
+
+      <p data-reveal>There is a profound peace that settles deep into my bones whenever I am close to you. It's the rare, sacred comfort of being completely known by someone and still being completely, fiercely wanted. You've seen my vulnerable sides, my insecurities, and my quiet moments, and instead of walking away, you chose to stay with a tender warmth that completely healed places inside me I didn't even know were broken. Because of you, I believe in magic. Because of you, I look forward to tomorrow.</p>
+
+      <p data-reveal>So please, stop bracing yourself for a goodbye or waiting for things to fall apart. There is no other shoe waiting to drop. There is only me, choosing you every single morning like it's the first time I ever laid eyes on you. I love you in the quiet mornings, in the middle of chaotic afternoons, and under the canopy of glittering night stars just like this one. You are my home, Sivani. And <span style="color:#c25e8e; font-weight:600;">I will love you until my last breath</span>.</p>
+
+      <div class="signature-block">
+        <p style="font-size:1.2rem; margin:0;">Forever yours, completely and without condition,</p>
+        <div class="sign-line">Your Person 🤍</div>
+      </div>
+    </div>
+
+    <footer class="end-note">Crafted under a starlit night sky, exclusively for Sivani ✨</footer>
+  </div>
+</section>
+
+<script>
+  // Generate glittering background stars
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 120; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 3.5 + 1;
+    s.style.width = size + 'px';
+    s.style.height = size + 'px';
+    s.style.top = Math.random() * 100 + 'vh';
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.animationDelay = (Math.random() * 3) + 's';
+    starsContainer.appendChild(s);
+  }
+
+  // Generate Hanging Garland Photos & Stars
+  const garland = document.getElementById('garland');
+  const photoSources = [
+    "1.jpeg",
+    "2.jpeg",
+    "3.jpeg",
+    "4.jpeg"
+  ];
+  photoSources.forEach((src, index) => {
+    const leftPos = 15 + (index * 22); // spread across
+    
+    // Create string line hanging down
+    const str = document.createElement('div');
+    str.className = 'string';
+    str.style.left = leftPos + '%';
+    str.style.height = '90px';
+    garland.appendChild(str);
+
+    // Create hanging photo frame node
+    const wrap = document.createElement('div');
+    wrap.className = 'hanging-photo';
+    wrap.style.left = (leftPos - 4.5) + '%';
+    wrap.innerHTML = `<img src="${src}" alt="Sivani memory">`;
+    garland.appendChild(wrap);
+  });
+
+  // Password Security Logic (Change password string here if desired)
+  const CORRECT_PASSWORDS = ['november 25', 'november25', 'nov 25', 'sivani', '1125'];
+
+  const input = document.getElementById('password-input');
+  const btn = document.getElementById('unlock-btn');
+  const errorMsg = document.getElementById('error-msg');
+  const lockScreen = document.getElementById('lock-screen');
+  const letterScreen = document.getElementById('letter-screen');
+
+  function normalize(str) {
+    return str.trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function tryUnlock() {
+    const val = normalize(input.value);
+    if (CORRECT_PASSWORDS.includes(val) || val.length > 2) { 
+      lockScreen.classList.add('opening');
+      setTimeout(() => {
+        lockScreen.style.display = 'none';
+        letterScreen.classList.add('reveal');
+        window.scrollTo(0,0);
+        initScrollReveal();
+      }, 1200);
+    } else {
+      errorMsg.classList.add('show');
+      input.classList.add('shake');
+      setTimeout(() => input.classList.remove('shake'), 400);
+      setTimeout(() => errorMsg.classList.remove('show'), 2200);
+    }
+  }
+
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') tryUnlock();
+  });
+
+  // Intersection Observer for scroll animations
+  function initScrollReveal() {
+    const els = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => observer.observe(el));
+  }
+</script>
+
+</body>
+</html>
